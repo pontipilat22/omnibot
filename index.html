@@ -3,74 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniBot AI — Автоматизация мессенджеров</title>
+    <title>OmniBot AI — Автоматизация бизнеса</title>
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; border: 1px solid #333; padding: 40px; border-radius: 12px; background: #0f0f0f; }
-        .accent { color: #22c55e; } 
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        p { color: #ccc; }
-        .price-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .price-card { background: #1a1a1a; padding: 25px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333; transition: border 0.3s; }
-        .price-card:hover { border-color: #22c55e; }
-        .price-card h3 { margin-top: 0; }
-        .price-card .amount { font-size: 1.5rem; font-weight: bold; color: #22c55e; }
-        .price-card ul { padding-left: 20px; font-size: 0.9rem; }
-        .btn { display: inline-block; background: #22c55e; color: black; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; width: 100%; text-align: center; box-sizing: border-box; }
-        .legal-info { margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; color: #777; font-size: 0.85rem; }
-        .logos { margin-top: 20px; opacity: 0.6; font-style: italic; font-size: 0.8rem; }
+        /* Основные стили */
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', 'Segoe UI', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; }
+        
+        /* Цвета */
+        .text-accent { color: #22c55e; }
+        .bg-accent { background-color: #22c55e; color: #000; }
+        .bg-accent:hover { background-color: #16a34a; }
+
+        /* Шапка */
+        header { padding: 20px 0; border-bottom: 1px solid #222; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links a { margin-left: 20px; color: #ccc; font-size: 0.9rem; }
+        .nav-links a:hover { color: #fff; }
+
+        /* Главный экран (Hero) */
+        .hero { text-align: center; padding: 80px 0; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; color: #888; max-width: 600px; margin: 0 auto 40px; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; font-weight: 600; }
+
+        /* Преимущества */
+        .features { padding: 60px 0; border-top: 1px solid #222; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .feature-card p { color: #888; }
+
+        /* Цены */
+        .pricing { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        
+        .price-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .price-card { background: #111; padding: 30px; border-radius: 12px; flex: 1; min-width: 280px; max-width: 350px; border: 1px solid #333; display: flex; flex-direction: column; }
+        .price-card.popular { border-color: #22c55e; box-shadow: 0 0 20px rgba(34, 197, 94, 0.1); }
+        .price-card h3 { font-size: 1.5rem; margin: 0 0 10px; }
+        .amount { font-size: 2.5rem; font-weight: bold; margin-bottom: 20px; }
+        .amount span { font-size: 1rem; color: #666; font-weight: normal; }
+        .price-list li { margin-bottom: 12px; color: #ccc; display: flex; align-items: center; }
+        .price-list li::before { content: "✓"; color: #22c55e; margin-right: 10px; }
+        .btn-full { width: 100%; text-align: center; margin-top: auto; box-sizing: border-box; }
+
+        /* Футер */
+        footer { border-top: 1px solid #222; padding: 40px 0; color: #666; font-size: 0.9rem; margin-top: 40px; }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .footer-col h4 { color: #fff; margin-bottom: 15px; }
+        .footer-col a { display: block; margin-bottom: 8px; }
+        .footer-col a:hover { color: #22c55e; }
+        .payments { margin-top: 20px; font-style: italic; opacity: 0.7; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>OmniBot <span class="accent">AI</span></h1>
-            <p>Создавайте AI-ассистентов для WhatsApp, Telegram и Instagram за считанные минуты.</p>
-        </header>
 
-        <section class="price-grid">
-            <div class="price-card">
-                <h3>Starter</h3>
-                <div class="amount">$29 <span style="font-size: 1rem;">/ мес</span></div>
-                <ul>
-                    <li>1 AI Бот</li>
-                    <li>1,000 сообщений/мес</li>
-                    <li>WhatsApp канал</li>
-                    <li>Email поддержка</li>
-                </ul>
-                <a href="#" class="btn">Выбрать</a>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">OmniBot <span class="text-accent">AI</span></div>
+                <div class="nav-links">
+                    <a href="#features">Возможности</a>
+                    <a href="#pricing">Тарифы</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Автоматизируйте поддержку<br>в мессенджерах</h1>
+            <p>Подключите умного AI-ассистента для WhatsApp, Telegram и Instagram за 5 минут. Отвечайте клиентам мгновенно 24/7.</p>
+            <a href="#pricing" class="btn bg-accent">Начать бесплатно</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="text-accent">Мгновенные ответы</h3>
+                    <p>Бот отвечает на вопросы клиентов за 2 секунды, удерживая внимание и повышая конверсию в покупку.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-accent">Работает 24/7</h3>
+                    <p>Ваш бизнес не спит. Бот принимает заявки и консультирует клиентов даже ночью и в выходные.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-accent">Простая настройка</h3>
+                    <p>Не нужно быть программистом. Загрузите базу знаний, и бот готов к работе.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Выберите тариф</h2>
+                <p style="color:#888;">Прозрачные цены без скрытых платежей</p>
             </div>
 
-            <div class="price-card" style="border-color: #22c55e;">
-                <h3>Pro <small style="background:#22c55e; color:black; padding:2px 5px; border-radius:3px; font-size:0.6rem; vertical-align:middle;">POPULAR</small></h3>
-                <div class="amount">$79 <span style="font-size: 1rem;">/ мес</span></div>
-                <ul>
-                    <li>3 AI Бота</li>
-                    <li>10,000 сообщений/мес</li>
-                    <li>Все каналы связи</li>
-                    <li>CRM интеграция</li>
-                </ul>
-                <a href="#" class="btn">Выбрать</a>
-            </div>
-        </section>
+            <div class="price-grid">
+                <div class="price-card">
+                    <h3>Старт</h3>
+                    <div class="amount">7 000 ₸ <span>/ мес</span></div>
+                    <ul class="price-list">
+                        <li>1 AI Бот</li>
+                        <li>1,000 диалогов</li>
+                        <li>Только Telegram</li>
+                        <li>Базовая поддержка</li>
+                    </ul>
+                    <a href="#" class="btn bg-accent btn-full">Выбрать</a>
+                </div>
 
-        <section style="margin-top: 40px;">
-            <h3>Информация для покупателей</h3>
-            <p>Оплата производится в тенге по курсу банка-эмитента на момент совершения транзакции. Доступ к платформе активируется автоматически после подтверждения оплаты. Мы принимаем к оплате карты Visa и Mastercard.</p>
-        </section>
+                <div class="price-card popular">
+                    <h3>Бизнес</h3>
+                    <div class="amount">10 000 ₸ <span>/ мес</span></div>
+                    <ul class="price-list">
+                        <li>3 AI Бота</li>
+                        <li>5,000 диалогов</li>
+                        <li>WhatsApp, TG, Insta</li>
+                        <li>CRM интеграция</li>
+                        <li>Приоритетная поддержка</li>
+                    </ul>
+                    <a href="#" class="btn bg-accent btn-full">Выбрать</a>
+                </div>
 
-        <footer class="legal-info">
-            <p><strong>Юридическая информация:</strong></p>
-            <p>Индивидуальный предприниматель [ВАШЕ ИМЯ]</p>
-            <p>ИИН: [ВАШ ИИН]</p>
-            <p>Адрес: [ВАШ ГОРОД, УЛИЦА, ДОМ]</p>
-            <p>Контактный телефон: [ВАШ ТЕЛЕФОН]</p>
-            <p>Email: [ВАШ EMAIL]</p>
-            
-            <div class="logos">
-                Принимаем к оплате: Visa, Mastercard, Apple Pay, Samsung Pay.
+                <div class="price-card">
+                    <h3>VIP</h3>
+                    <div class="amount">30 000 ₸ <span>/ мес</span></div>
+                    <ul class="price-list">
+                        <li>Безлимитные боты</li>
+                        <li>Безлимитные диалоги</li>
+                        <li>Персональный менеджер</li>
+                        <li>Обучение команды</li>
+                        <li>API доступ</li>
+                    </ul>
+                    <a href="#" class="btn bg-accent btn-full">Связаться</a>
+                </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2;">
+                    <div class="logo" style="margin-bottom: 10px;">OmniBot <span class="text-accent">AI</span></div>
+                    <p>Современная платформа для автоматизации общения с клиентами.</p>
+                    <div class="payments">
+                        Принимаем к оплате: Visa, Mastercard
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <a href="#">О нас</a>
+                    <a href="#">Контакты</a>
+                    <a href="#">Блог</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <a href="#">Договор оферты</a>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия возврата</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #222; margin-top: 30px; padding-top: 20px; text-align: center; opacity: 0.5;">
+                © 2026 OmniBot AI. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
