@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniBot AI — Автоматизация мессенджеров</title>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; border: 1px solid #333; padding: 40px; border-radius: 12px; background: #0f0f0f; }
+        .accent { color: #22c55e; } 
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        p { color: #ccc; }
+        .price-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .price-card { background: #1a1a1a; padding: 25px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid #333; transition: border 0.3s; }
+        .price-card:hover { border-color: #22c55e; }
+        .price-card h3 { margin-top: 0; }
+        .price-card .amount { font-size: 1.5rem; font-weight: bold; color: #22c55e; }
+        .price-card ul { padding-left: 20px; font-size: 0.9rem; }
+        .btn { display: inline-block; background: #22c55e; color: black; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; width: 100%; text-align: center; box-sizing: border-box; }
+        .legal-info { margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; color: #777; font-size: 0.85rem; }
+        .logos { margin-top: 20px; opacity: 0.6; font-style: italic; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OmniBot <span class="accent">AI</span></h1>
+            <p>Создавайте AI-ассистентов для WhatsApp, Telegram и Instagram за считанные минуты.</p>
+        </header>
+
+        <section class="price-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="amount">$29 <span style="font-size: 1rem;">/ мес</span></div>
+                <ul>
+                    <li>1 AI Бот</li>
+                    <li>1,000 сообщений/мес</li>
+                    <li>WhatsApp канал</li>
+                    <li>Email поддержка</li>
+                </ul>
+                <a href="#" class="btn">Выбрать</a>
+            </div>
+
+            <div class="price-card" style="border-color: #22c55e;">
+                <h3>Pro <small style="background:#22c55e; color:black; padding:2px 5px; border-radius:3px; font-size:0.6rem; vertical-align:middle;">POPULAR</small></h3>
+                <div class="amount">$79 <span style="font-size: 1rem;">/ мес</span></div>
+                <ul>
+                    <li>3 AI Бота</li>
+                    <li>10,000 сообщений/мес</li>
+                    <li>Все каналы связи</li>
+                    <li>CRM интеграция</li>
+                </ul>
+                <a href="#" class="btn">Выбрать</a>
+            </div>
+        </section>
+
+        <section style="margin-top: 40px;">
+            <h3>Информация для покупателей</h3>
+            <p>Оплата производится в тенге по курсу банка-эмитента на момент совершения транзакции. Доступ к платформе активируется автоматически после подтверждения оплаты. Мы принимаем к оплате карты Visa и Mastercard.</p>
+        </section>
+
+        <footer class="legal-info">
+            <p><strong>Юридическая информация:</strong></p>
+            <p>Индивидуальный предприниматель [ВАШЕ ИМЯ]</p>
+            <p>ИИН: [ВАШ ИИН]</p>
+            <p>Адрес: [ВАШ ГОРОД, УЛИЦА, ДОМ]</p>
+            <p>Контактный телефон: [ВАШ ТЕЛЕФОН]</p>
+            <p>Email: [ВАШ EMAIL]</p>
+            
+            <div class="logos">
+                Принимаем к оплате: Visa, Mastercard, Apple Pay, Samsung Pay.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
